@@ -1,0 +1,28 @@
+---
+# defaults main.yml file
+
+## Custom Color Prompt
+awx_localenv_custom_color_prompt: True
+
+## EPEL
+awx_localenv_epel_repofile_path: "/etc/yum.repos.d/epel.repo"
+awx_localenv_epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
+awx_localenv_epel_repo_gpg_key_url: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+
+## Install Build Packages if set to True
+awx_localenv_pkgs_build_install: False
+awx_localenv_pkgs_build_list: [] # see vars/main.yml for package list
+
+## Install Quality of Life Packages if set to True
+awx_localenv_pkgs_qol_install: True
+awx_localenv_pkgs_qol_list: [] # see vars/main.yml for package list
+
+## Install PuTTy Package from source if set to True
+awx_localenv_pkgs_putty_install: False
+awx_localenv_pkgs_putty_url: "https://the.earth.li/~sgtatham/putty/0.78/putty-0.78.tar.gz"
+awx_localenv_pkgs_putty_file: "/tmp/putty-0.78.tar.gz"
+awx_localenv_pkgs_putty_dir: "/tmp/putty-0.78/"
+awx_localenv_pkgs_putty_bin: "/usr/local/bin/puttygen"
+
+## Install Ansible Packages if set to True
+awx_localenv_pkgs_ansible_install: False

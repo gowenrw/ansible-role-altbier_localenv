@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Richard Gowen
+  description: Sets up a linux local environment based on preferences set by variables
+
+  license: MIT
+
+  min_ansible_version: 2.9
+
+  galaxy_tags: []
+
+dependencies: []
+  # Uses the following collections
+  # ansible.posix
+  # community.general

@@ -1,0 +1,9 @@
+---
+- name: Localenv Playbook
+  hosts: all
+
+  tasks:
+  - name: Import role awx_localenv
+    ansible.builtin.import_role:
+      name: awx_localenv
+
