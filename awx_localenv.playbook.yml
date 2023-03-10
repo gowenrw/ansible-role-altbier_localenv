@@ -19,6 +19,12 @@
 ## Custom Color Prompt if set to True
 # awx_localenv_custom_color_prompt: True
 #
+## Install EPEL if set to True
+# awx_localenv_epel_install: True
+#
+## Yum Update if set to True
+# awx_localenv_yum_update: True
+#
 ## Install Quality of Life Packages if set to True
 # awx_localenv_pkgs_qol_install: True
 #

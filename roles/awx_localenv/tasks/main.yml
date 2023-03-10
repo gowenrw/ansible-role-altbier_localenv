@@ -48,12 +48,15 @@
     path: "{{ awx_localenv_epel_repofile_path }}"
   register: reg_epel_repofile_result
   become: True
+  when:
+    - awx_localenv_epel_install
 #
 # crb on centos and rocky
 - name: Enable codeready-builder repository on CentOS or Rocky
   ansible.builtin.command: "dnf config-manager --set-enabled crb"
   become: True
-  when: 
+  when:
+    - awx_localenv_epel_install
     - not reg_epel_repofile_result.stat.exists
     - ansible_distribution == 'CentOS' or ansible_distribution == 'Rocky'
 #
@@ -65,18 +68,20 @@
       - epel-next-release
     state: present
   become: True
-  when: 
+  when:
+    - awx_localenv_epel_install
     - not reg_epel_repofile_result.stat.exists
     - ansible_distribution == 'CentOS'
 #
 # epel on rocky
-- name: Install epel-release and epel-next-release on Rocky
+- name: Install epel-release on Rocky
   ansible.builtin.dnf:
     name:
       - epel-release
     state: present
   become: True
   when: 
+    - awx_localenv_epel_install
     - not reg_epel_repofile_result.stat.exists
     - ansible_distribution == 'Rocky'
 #
@@ -85,6 +90,7 @@
 #  community.general.rhsm_repository:
 #    name: codeready-builder-for-rhel-{{ ansible_distribution_major_version }}-{{ ansible_facts.architecture }}-rpms
 #  when: 
+#    - awx_localenv_epel_install
 #    - not reg_epel_repofile_result.stat.exists
 #    - ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
 #
@@ -99,6 +105,7 @@
   delay: 10
   become: True
   when: 
+    - awx_localenv_epel_install
     - not reg_epel_repofile_result.stat.exists
     - ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
 #
@@ -113,6 +120,7 @@
   delay: 10
   become: True
   when: 
+    - awx_localenv_epel_install
     - not reg_epel_repofile_result.stat.exists
     - ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
 
@@ -127,11 +135,14 @@
     update_only: True
   register: reg_yum_update_result
   become: True
+  when: awx_localenv_yum_update or ( awx_localenv_epel_install and not reg_epel_repofile_result.stat.exists )
+
 #
 # Dump the output of previous task if needed for troubleshooting
 - name: "Debug task output"
   ansible.builtin.debug:
-    var: reg_yum_update_result
+    msg:
+    - "{{ omit if reg_yum_update_result is not defined else reg_yum_update_result }}"
     verbosity: 1
   become: True
 
