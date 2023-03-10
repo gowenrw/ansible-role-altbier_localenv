@@ -1,12 +1,12 @@
 ceres_localenv
 ============
 
-This role will update a vms local environment as needed by use case (e.g., ansible control node).
+This role will update a linux vm local environment as needed by use case.
 
 Requirements
 ------------
 
-This role has been designed for use with CentOS Stream 9 and RHEL 9 vms.
+This role currently works with CentOS Stream and Rocky and RHEL distributions.
 
 Role Variables
 --------------
