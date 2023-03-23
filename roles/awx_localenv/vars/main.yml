@@ -19,4 +19,5 @@ awx_localenv_pkgs_qol_list:
   - traceroute
   - htop
   - python3-pip
+  - tmux
 
