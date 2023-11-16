@@ -1,0 +1,47 @@
+---
+# vars main.yml file
+
+## Build Packages
+#
+## Redhat
+altbier_localenv_pkgs_build_list_rh:
+  - gcc
+  - kernel-devel
+  - kernel-headers
+  - make
+  - cmake
+  - bzip2
+  - perl
+  - python3
+#
+## Ubuntu
+altbier_localenv_pkgs_build_list_ub:
+  - build-essential
+  - linux-headers-generic
+  - make
+  - cmake
+  - bzip2
+  - perl
+  - python3
+
+## Quality of Life Packages
+#
+## Redhat
+altbier_localenv_pkgs_qol_list_rh:
+  - git
+  - vim
+  - net-tools
+  - traceroute
+  - htop
+  - python3-pip
+  - tmux
+#
+## Ubuntu
+altbier_localenv_pkgs_qol_list_ub:
+  - git
+  - vim
+  - net-tools
+  - traceroute
+  - htop
+  - python3-pip
+  - tmux

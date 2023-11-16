@@ -1,0 +1,22 @@
+---
+# tasks main.yml file
+
+## OS Check ##
+- name: OS Check
+  ansible.builtin.fail:
+    msg: 
+    - "The role currently only supports CentOS and Rocky and RHEL distributions."
+    - "Detected distribution: {{ ansible_distribution }}"
+  when: ansible_distribution not in ['CentOS', 'RedHat', 'Red Hat Enterprise Linux', 'Rocky', 'Ubuntu']
+
+## Redhat Tasks ##
+- name: Redhat Tasks
+  ansible.builtin.import_tasks:
+    file: redhat_main.yml
+  when: ansible_distribution in ['CentOS', 'RedHat', 'Red Hat Enterprise Linux', 'Rocky']
+
+## Ubuntu Tasks ##
+- name: Ubuntu Tasks
+  ansible.builtin.import_tasks:
+    file: ubuntu_main.yml
+  when: ansible_distribution == 'Ubuntu'

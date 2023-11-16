@@ -1,0 +1,44 @@
+---
+# defaults main.yml file
+
+## Custom Color Prompt if set to True
+altbier_localenv_custom_color_prompt: True
+
+## EPEL
+altbier_localenv_epel_repofile_path: "/etc/yum.repos.d/epel.repo"
+altbier_localenv_epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
+altbier_localenv_epel_repo_gpg_key_url: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+## Install EPEL if set to True
+altbier_localenv_epel_install: True
+
+## Do Package Update if set to True
+altbier_localenv_pkg_update: True
+
+## Install Build Packages if set to True
+altbier_localenv_pkgs_build_install: False
+altbier_localenv_pkgs_build_list_rh: [] # see vars/main.yml for package list
+altbier_localenv_pkgs_build_list_ub: [] # see vars/main.yml for package list
+
+## Install Quality of Life Packages if set to True
+altbier_localenv_pkgs_qol_install: True
+altbier_localenv_pkgs_qol_list_rh: [] # see vars/main.yml for package list
+altbier_localenv_pkgs_qol_list_ub: [] # see vars/main.yml for package list
+
+## Install PuTTy Package from source if set to True
+altbier_localenv_pkgs_putty_install: False
+altbier_localenv_pkgs_putty_url: "https://the.earth.li/~sgtatham/putty/0.78/putty-0.78.tar.gz"
+altbier_localenv_pkgs_putty_file: "/tmp/putty-0.78.tar.gz"
+altbier_localenv_pkgs_putty_dir: "/tmp/putty-0.78/"
+altbier_localenv_pkgs_putty_bin: "/usr/local/bin/puttygen"
+
+## Install Ansible Packages if set to True
+altbier_localenv_pkgs_ansible_install: False
+
+## Resize Disks if set to True
+altbier_localenv_resize_disk: False  # If True resize partition & filesystem
+altbier_localenv_resize_az_rhel_lvm_disk: False  # If True resize LVM & filesystem on RHEL in Azure
+# Resize Disk Default Parameters
+altbier_localenv_resize_dev: "/dev/sda"
+altbier_localenv_resize_part: 1          # centos and ubuntu / is sda1 - rocky / is sda5
+altbier_localenv_resize_fstype: "ext4"   # centos and ubuntu / is ext4 - rocky / is xfs
+
