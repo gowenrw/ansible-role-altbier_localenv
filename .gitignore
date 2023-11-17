@@ -1,16 +1,94 @@
-# Compiled source #
-###################
-*.com
-*.class
-*.dll
-*.exe
+# ###################################################################
+# C / SDCC Compiler generated files
+# ###################################################################
+
+# Prerequisites
+*.d
+
+# Object files
 *.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.lk
+*.lst
+*.map
+*.exp
+*.rst
+*.sym
+*.rel
+*.ihx
+*.mem
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
 *.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+*.com
+*.bin
+*.asm
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# ###################################################################
+# Python generated files
+# ###################################################################
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ###################################################################
+# Other Locally generated files
+# ###################################################################
 
 # Packages #
 ############
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
 *.7z
 *.dmg
 *.gz
@@ -20,13 +98,8 @@
 *.tar
 *.zip
 
-# Logs #
-######################
-*.log
-/logs/
-
 # OS generated files #
-######################
+# ####################
 .DS_Store
 .DS_Store?
 ._*
@@ -34,6 +107,11 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Logs #
+########
+*.log
+/logs/
 
 # Editor swapfiles #
 ####################
@@ -53,7 +131,7 @@ boxes/*
 .ansible-vault.private_key
 
 # Key Files #
-#################
+#############
 *.ppk
 *.pem
 *.pub
