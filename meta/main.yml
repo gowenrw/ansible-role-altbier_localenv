@@ -1,4 +1,5 @@
 galaxy_info:
+  name: altbier_localenv
   author: Richard Gowen (a.k.a. @alt_bier)
   description: This role will update a linux vm to provide a local environment based on preferences set by variables
 
