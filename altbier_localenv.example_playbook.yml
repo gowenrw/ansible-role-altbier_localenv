@@ -1,12 +1,7 @@
 ---
-- name: Localenv Playbook
+- name: Altbier Localenv Playbook
   hosts: all
   vars:
-    ##########
-    ## The altbier_localenv role is controlled by variables
-    ## The following variables are used
-    ##########
-    #
     ##########
     ## By default these are set to True
     ##########
@@ -45,4 +40,4 @@
   tasks:
   - name: Import role altbier_localenv
     ansible.builtin.import_role:
-      name: altbier_localenv
+      name: gowenrw.altbier_localenv
